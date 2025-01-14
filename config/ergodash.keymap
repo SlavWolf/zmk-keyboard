@@ -69,15 +69,6 @@
         };
     };
 
-    macros {
-        record: record {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <>;
-            label = "RECORD";
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
