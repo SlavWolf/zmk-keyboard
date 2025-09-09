@@ -75,7 +75,6 @@
             #binding-cells = <0>;
             bindings = <&kp UP_ARROW &kp DOWN_ARROW &kp RIGHT_ARROW &kp LEFT_ARROW &kp UP_ARROW>;
             label = "REINFORCEMENT";
-            wait-ms = <10>;
         };
 
         hellbomb: hellbomb {
@@ -83,6 +82,20 @@
             #binding-cells = <0>;
             bindings = <&kp DOWN_ARROW &kp UP_ARROW &kp LEFT_ARROW &kp DOWN_ARROW &kp UP_ARROW &kp RIGHT_ARROW &kp DOWN_ARROW &kp UP_ARROW>;
             label = "HELLBOMB";
+        };
+
+        e500kgs: miku {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp UP_ARROW &kp RIGHT_ARROW &kp DOWN_ARROW &kp DOWN_ARROW &kp DOWN_ARROW>;
+            label = "MIKU";
+        };
+
+        miku: e500kg {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_ARROW &kp DOWN_ARROW &kp UP_ARROW &kp RIGHT_ARROW &kp DOWN_ARROW>;
+            label = "E500KG";
         };
     };
 
@@ -150,7 +163,7 @@
  */ /* FIXME boot and reset are not yet locale aware */
             bindings = <
 &none   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2          &bt BT_SEL 3           &none  &bt BT_CLR                  &none  &none           &none      &none     &none        &none       &none
-&none   &none         &none         &kp LEFT_BRACE        &kp RIGHT_BRACE        &none  &none                       &none  &reinforcement  &hellbomb  &none     &none        &none       &none
+&none   &none         &none         &kp LEFT_BRACE        &kp RIGHT_BRACE        &none  &none                       &none  &reinforcement  &hellbomb  &miku     &e500kgs     &none       &none
 &none   &none         &none         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none  &none                       &none  &H_ARROW        &J_ARROW   &K_ARROW  &L_ARROW     &none       &none
 &trans  &sys_reset    &bootloader   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &none              &none   &none          &none           &none      &none     &bootloader  &sys_reset  &trans
 &trans  &none         &none         &trans                &trans                        &none       &trans  &trans  &none                  &trans     &none     &none        &none       &trans
