@@ -99,12 +99,17 @@
         };
 
         // Taps a key for exactly 20 ms, for fine aiming in Worms Armageddon
+
         nudge: nudge {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             tap-ms = <20>;
             wait-ms = <0>;
-            bindings = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>;
+            bindings =
+                <&macro_param_1to1>,
+                <&macro_tap>,
+                <&kp MACRO_PLACEHOLDER>;
+
             label = "NUDGE";
         };
     };
@@ -182,11 +187,11 @@
 
         layer_4 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                  &to 0   &trans    &trans    &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &kp UP    &nudge UP           &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &kp LEFT  &kp DOWN  &kp RIGHT           &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans          &trans    &trans    &nudge DOWN         &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans            &trans    &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans                  &to 0   &trans    &trans    &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &nudge W  &trans                  &trans  &trans    &kp UP    &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &nudge S  &trans                  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans          &trans    &trans    &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans            &trans    &trans     &trans  &trans  &trans
             >;
         };
     };
