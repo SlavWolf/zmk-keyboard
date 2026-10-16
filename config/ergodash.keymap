@@ -112,6 +112,23 @@
 
             label = "NUDGE";
         };
+
+        // Nudges down (S) 1-5 times in a row
+
+#define NUDGE_DOWN(name, ...) \
+        name: name { \
+            compatible = "zmk,behavior-macro"; \
+            #binding-cells = <0>; \
+            tap-ms = <20>; \
+            wait-ms = <20>; \
+            bindings = <__VA_ARGS__>; \
+        };
+
+        NUDGE_DOWN(nudge_down_1, &kp S)
+        NUDGE_DOWN(nudge_down_2, &kp S &kp S)
+        NUDGE_DOWN(nudge_down_3, &kp S &kp S &kp S)
+        NUDGE_DOWN(nudge_down_4, &kp S &kp S &kp S &kp S)
+        NUDGE_DOWN(nudge_down_5, &kp S &kp S &kp S &kp S &kp S)
     };
 
     keymap {
@@ -187,7 +204,7 @@
 
         layer_4 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans                  &to 0   &trans    &trans    &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans                  &to 0   &nudge_down_1  &nudge_down_2  &nudge_down_3  &nudge_down_4  &nudge_down_5  &trans
 &trans  &trans  &trans  &trans  &trans  &nudge W  &trans                  &trans  &trans    &kp UP    &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &nudge S  &trans                  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans          &trans    &trans    &trans     &trans  &trans  &trans
